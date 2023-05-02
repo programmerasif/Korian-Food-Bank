@@ -1,0 +1,4 @@
+.height{
+    min-height: 90vh
+    /* min-h-[calc(100vh-150px)] */
+}
