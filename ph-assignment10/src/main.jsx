@@ -10,6 +10,7 @@ import Main from './components/Main/Main.jsx';
 import Header from './components/share/Header/Header.jsx';
 import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register';
+import ViewDetils from './components/ViewDetls/ViewDetils';
 
 
 
@@ -30,8 +31,15 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register />
       }, 
+      {
+        path: '/safelist/:detilsId',
+        element:<ViewDetils />,
+        loader: ({params}) => fetch(`http://localhost:5000/chefslist/${params.detilsId}`)
+        
+      }
     ],
   },
+  
   
 ]);
 

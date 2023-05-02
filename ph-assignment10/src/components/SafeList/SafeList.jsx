@@ -2,10 +2,11 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { FcLike } from "react-icons/fc";
 import { FaAward } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const SafeList = ({chef}) => {
     console.log(chef);
-    const {img_url,name,experience_years,rating,country,Numbers_of_recipes} = chef
+    const {id,img_url,name,experience_years,rating,Numbers_of_recipes} = chef
     return (
         <div>
             <div className=" ">
@@ -15,7 +16,7 @@ const SafeList = ({chef}) => {
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>
-                           Experience : {experience_years}
+                           Experience : {experience_years} Years
                         </Card.Text>
                         <Card.Text>
                         Numbers of recipes : {Numbers_of_recipes}
@@ -25,7 +26,7 @@ const SafeList = ({chef}) => {
                         </Card.Text>
                         
                         <div className='d-flex justify-content-between align-items-center'>
-                        <Button variant="danger">View Recipes</Button>
+                        <Link to={`/safelist/${id}`}><Button variant="danger">View Recipes</Button></Link>
                         <h5 >Ratings : <span className='text-secondary'>{rating} <FaAward /></span> </h5>
                         </div>
                     </Card.Body>
