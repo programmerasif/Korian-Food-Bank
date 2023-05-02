@@ -8,7 +8,7 @@ const Nave = () => {
         <div>
              <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
       <Container>
-        <Navbar.Brand href="#home">Deshi-Food-Bank <FcFactoryBreakdown /></Navbar.Brand>
+        <Navbar.Brand href="#home" ><h3>Deshi-Food-Bank  <FcFactoryBreakdown /></h3></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
@@ -18,6 +18,7 @@ const Nave = () => {
             <Link to='/'>Home</Link>
             <Link to='/'>Blog</Link>
             <Link to='login'> <Button variant="danger">Login</Button></Link>
+            <Link to='register'> <Button variant="danger">Register</Button></Link>
             </div>
           </Nav>
         </Navbar.Collapse>

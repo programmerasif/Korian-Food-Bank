@@ -1,5 +1,7 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { FcLike } from "react-icons/fc";
+import { FaAward } from "react-icons/fa";
 
 const SafeList = ({chef}) => {
     console.log(chef);
@@ -19,10 +21,13 @@ const SafeList = ({chef}) => {
                         Numbers of recipes : {Numbers_of_recipes}
                         </Card.Text>
                         <Card.Text>
-                        Likes : 1.5k
+                        Likes : 1.5k <FcLike />
                         </Card.Text>
                         
-                        <Button variant="danger">View-Detils</Button>
+                        <div className='d-flex justify-content-between align-items-center'>
+                        <Button variant="danger">View Recipes</Button>
+                        <h5 >Ratings : <span className='text-secondary'>{rating} <FaAward /></span> </h5>
+                        </div>
                     </Card.Body>
                 </Card>
                 </div>
