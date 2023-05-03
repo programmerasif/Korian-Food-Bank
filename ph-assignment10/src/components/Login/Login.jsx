@@ -1,16 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
-
-    
+    const navigate = useNavigate()
+    const {login} = useContext(AuthContext)
     const handelLogin = event =>{
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email,password);
+        login(email,password)
+        .then(res =>{
+          const creatUsers = res.user;
+          console.log(creatUsers);
+          navigate('/')
+        })
+        .catch(err =>{
+          console.log(err);
+        })
     }
     return (
         <div className='w-md-25 w-sm-50 mx-auto mt-5 shadow p-3 mb-5 bg-body-tertiary rounded'>

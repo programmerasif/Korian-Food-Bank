@@ -5,7 +5,6 @@ import { FaAward } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const SafeList = ({chef}) => {
-    console.log(chef);
     const {id,img_url,name,experience_years,rating,Numbers_of_recipes} = chef
     return (
         <div>

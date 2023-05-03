@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import  { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
+  const  {creatuser,update} = useContext(AuthContext)
+  const navigate = useNavigate()
     const handelRegister = event =>{
         event.preventDefault();
         const form = event.target;
@@ -11,6 +14,16 @@ const Register = () => {
         const photoURL = form.photo.value;
         const password = form.password.value;
         console.log(name,email,password,photoURL);
+        creatuser(email,password)
+        .then(res =>{
+          const creatUsers = res.user;
+          update(name,photoURL)
+          navigate('/')
+          console.log(creatUsers);
+        })
+        .catch(err =>{
+          console.log(err);
+        })
     }
     return (
         <div className='w-md-25 w-sm-50 mx-auto mt-5 shadow p-3 mb-5 bg-body-tertiary rounded'>

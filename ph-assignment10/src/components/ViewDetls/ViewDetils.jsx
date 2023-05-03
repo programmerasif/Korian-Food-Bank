@@ -9,7 +9,7 @@ const ViewDetils = () => {
     const { img_url, name, bio, Numbers_of_recipes, Likes, experience_years, recipes } = detils[0]
     console.log(recipes);
     return (
-        <div>
+        <div className='my-5 '>
             <div className='shadow p-3 mb-5 bg-body-tertiary container mx-auto d-flex justify-content-center gap-4 align-items-center p-5 flex-column flex-md-row'>
                 <div>
                     <img src={img_url} alt="" className=' img' />
