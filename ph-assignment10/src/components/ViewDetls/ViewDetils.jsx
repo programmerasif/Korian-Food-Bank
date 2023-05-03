@@ -14,10 +14,10 @@ const ViewDetils = () => {
                 <div>
                     <img src={img_url} alt="" className=' img' />
                     <h5>Name : {name}</h5>
-                    <p className='w-md-75 w-sm-100'><span className='fs-5 me-2'>A Short Text Of chef :</span>{bio}</p>
+                    <p className='w-md-75 w-sm-100'><span className='fs-5 me-2'>A Short Bio Of chef :</span>{bio}</p>
                     <p>Liks : {Likes}</p>
                     <p>Numbers of recipes :{Numbers_of_recipes}</p>
-                    <p>Experience Years : {experience_years}</p>
+                    <p>Experience  : {experience_years} Years</p>
                 </div>
                 <div>
                     <h4 className='bg-danger text-white p-3 text-center'>Chef's recipes</h4>

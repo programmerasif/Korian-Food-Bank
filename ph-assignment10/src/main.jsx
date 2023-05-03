@@ -14,6 +14,7 @@ import ViewDetils from './components/ViewDetls/ViewDetils';
 import AuthProvider from './providers/AuthProvider';
 import PrivateRout from './PrivateRout/PrivateRout';
 import Blog from './components/Blog/Blog';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 
 
@@ -21,6 +22,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
