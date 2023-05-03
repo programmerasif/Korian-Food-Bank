@@ -1,15 +1,29 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 const auth = getAuth(app)
 export const AuthContext = createContext(null)
+
+
 const AuthProvider = ({children}) => {
     const [user ,setUser] = useState(null)
+    const [loader,setLoader] = useState(true)
+    const googleprovider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
+
+    const googleLogin = () =>{
+        return signInWithPopup(auth, googleprovider)
+    }
+    const githubLogin = () =>{
+        return signInWithPopup(auth, githubProvider)
+    }
     const creatuser = (email,password) =>{
+        setLoader(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
     const login = (email,password) =>{
+        setLoader(true)
         return signInWithEmailAndPassword(auth,email,password)
     }
     const update = (name,pURL) =>{
@@ -19,6 +33,7 @@ const AuthProvider = ({children}) => {
     }
 
     const logOut = () =>{
+        setLoader(true)
         return signOut(auth)
     }
 
@@ -26,6 +41,7 @@ const AuthProvider = ({children}) => {
       const unsubscrib =  onAuthStateChanged(auth,loggedUser =>{
             console.log('users loged in ' ,loggedUser)
             setUser(loggedUser)
+            setLoader(false)
         })
         return () =>{
             unsubscrib()
@@ -33,10 +49,13 @@ const AuthProvider = ({children}) => {
      },[])
     const AuthInfo  = {
         user,
+        loader,
         creatuser,
         login,
         update,
-        logOut
+        logOut,
+        googleLogin,
+        githubLogin
     }
    
     return (

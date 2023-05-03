@@ -1,8 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 const Cards = ({ reci }) => {
-    console.log(reci);
+  const [isDesable ,disable] = useState(false)
+    const handelfavourut = () =>{
+        toast('Added to the favourit list')
+        disable(true)
+    }
     const { name, ingredients, description,rating } = reci
     return (
         <>
@@ -15,8 +21,9 @@ const Cards = ({ reci }) => {
                 </div>
                 <div className='d-flex justify-content-between align-items-center py-3'>
                     <p>Ratings : {rating}</p>
-                    <button className='btn btn-danger'>Favourit</button>
+                    <button className={`btn btn-danger ${isDesable == true ? 'disabled' :''}`} onClick={handelfavourut}>Favourit</button>
                 </div>
+                <ToastContainer />
             </div>
         </>
     );

@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
-import { FcFactoryBreakdown } from "react-icons/fc";
-import { Link, useNavigate } from 'react-router-dom';
+import { FcBusinessman, FcFactoryBreakdown } from "react-icons/fc";
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../../providers/AuthProvider';
-import { FaUserCircle } from 'react-icons/fa';
+
+import './nave.css'
 
 const Nave = () => {
   const { user, logOut } = useContext(AuthContext)
@@ -18,7 +19,7 @@ const Nave = () => {
 
   return (
     <div>
-      <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
+      {/* <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
         <Container>
           <Navbar.Brand href="#home" ><h3>Korian-Food-Bank  <FcFactoryBreakdown /></h3></Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -39,6 +40,69 @@ const Nave = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+ */}
+
+
+
+     {/*  */}
+
+
+
+
+
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand href="#home"><h3>Korian-Food-Bank  <FcFactoryBreakdown /></h3></Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+        <div className='ms-auto d-flex gap-3 align-items-center'>
+        <div>{!user == true ? <p><FcBusinessman style={{ fontSize: "40px" }} className=' '/> </p> : <img src={user.photoURL} alt="" style={{ width: "50px" }} className="rounded-circle me-4" />}</div>
+                {/* 
+                 */}
+                  
+                  <NavLink to="/"
+                className={({ isActive, isPending }) =>isPending ? "pending" : isActive ? "text-danger" : "text-white"} 
+                style={{ textDecoration: 'none' }}
+                >
+                Home
+              </NavLink>
+
+              <NavLink
+                to="/blog"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "text-danger" : "text-white"
+                }
+                style={{ textDecoration: 'none' }}
+              >
+                Blog
+              </NavLink>
+
+                {
+                !user == true ? <div className='d-flex gap-3'>    <NavLink
+                to="/login"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "text-danger" : "text-white"
+                }
+                style={{ textDecoration: 'none' }}
+              >
+                Login
+              </NavLink>
+
+              <NavLink
+                to="/register"
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "text-danger" : "text-white"
+                }
+                style={{ textDecoration: 'none' }}
+              >
+                Register
+              </NavLink></div> : <Button variant="danger" onClick={handelLogOut}>Log out</Button>
+              }
+        </div>
+      
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
     </div>
   );
 };

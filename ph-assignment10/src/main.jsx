@@ -12,6 +12,8 @@ import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register';
 import ViewDetils from './components/ViewDetls/ViewDetils';
 import AuthProvider from './providers/AuthProvider';
+import PrivateRout from './PrivateRout/PrivateRout';
+import Blog from './components/Blog/Blog';
 
 
 
@@ -33,8 +35,12 @@ const router = createBrowserRouter([
         element: <Register />
       }, 
       {
+        path: '/blog',
+        element: <Blog />
+      },
+      {
         path: '/safelist/:detilsId',
-        element:<ViewDetils />,
+        element: <PrivateRout> <ViewDetils /> </PrivateRout>,
         loader: ({params}) => fetch(`http://localhost:5000/chefslist/${params.detilsId}`)
         
       }
