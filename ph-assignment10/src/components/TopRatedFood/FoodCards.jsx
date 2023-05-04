@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card';
 import { FcLike } from 'react-icons/fc';
 
 const FoodCards = ({food}) => {
-    console.log(food);
+    
     const {name,picture_url,rating,likes,about} = food
     return (
         <div className='col-md-4 col-sm-12 mx-auto mt-3 '>

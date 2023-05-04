@@ -12,8 +12,9 @@ const SafeList = ({chef}) => {
             <div className="mb-5 ">
                 
                 <Card >
-                    <Card.Img variant="top" src={img_url} />
-                   
+                    
+                    <LazyLoadImage src={img_url} effect="blur" alt='https://thumbs.dreamstime.com/b/smoke-floor-isolated-black-background-misty-fog-effect-texture-overlays-text-space-smoke-fog-misty-overltays-effect-134306702.jpg' style={{width:"350px"}}/>
+
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>

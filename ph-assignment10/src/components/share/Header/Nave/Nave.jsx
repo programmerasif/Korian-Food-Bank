@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react';
-import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Button, Container, Navbar } from 'react-bootstrap';
 import { FcBusinessman, FcFactoryBreakdown } from "react-icons/fc";
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import {  NavLink, } from 'react-router-dom';
 import { AuthContext } from '../../../../providers/AuthProvider';
 
 import './nave.css'
 
 const Nave = () => {
   const { user, logOut } = useContext(AuthContext)
-  const [tooltips,setTooltip] = useState(false)
+  const [tooltips,setTooltip] = useState(true)
   
   
   const handelLogOut = () => {
