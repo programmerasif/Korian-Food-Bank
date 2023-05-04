@@ -3,6 +3,7 @@ import { Button, Card } from 'react-bootstrap';
 import { FcLike } from "react-icons/fc";
 import { FaAward } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const SafeList = ({chef}) => {
     const {id,img_url,name,experience_years,rating,Numbers_of_recipes} = chef
@@ -12,6 +13,7 @@ const SafeList = ({chef}) => {
                 
                 <Card >
                     <Card.Img variant="top" src={img_url} />
+                   
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>
                         <Card.Text>
