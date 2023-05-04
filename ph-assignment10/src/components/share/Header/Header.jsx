@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import img from '../../../assets/banner.jpg'
 import SafeList from '../../SafeList/SafeList';
+import TopRatedFooe from '../../TopRatedFood/TopRatedFooe';
+import { FaHotjar } from 'react-icons/fa';
+import CoustomarRivew from '../../CoustomarRivew/CoustomarRivew';
 
 
 
 const Header = () => {
     const [chefList, setChefLis] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/chefsList`)
+        fetch(`https://server-6jg7-programmerasif.vercel.app/chefsList`)
             .then(res => res.json())
             .then(data => setChefLis(data.chefs))
     }, [])
@@ -31,12 +34,20 @@ const Header = () => {
             </div>
             <div className='container my-5 py-5'>
                 <div>
+                    <h3 className='text-danger text-center'>OUR CHEFs <FaHotjar /></h3>
+                    <hr />
                     <div className='row'>
                         {
                             chefList.map(chef => <div className='col-md-4 col-sm-12 gap-3 mt-3'><SafeList chef={chef}  key={chef.id}/></div>)
                         }
                     </div>
                 </div>
+               <div>
+               <TopRatedFooe />
+               </div>
+               <div>
+                <CoustomarRivew />
+               </div>
             </div>
             
         </>

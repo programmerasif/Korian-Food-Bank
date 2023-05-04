@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       {
         path: '/safelist/:detilsId',
         element: <PrivateRout> <ViewDetils /> </PrivateRout>,
-        loader: ({params}) => fetch(`http://localhost:5000/chefslist/${params.detilsId}`)
+        loader: ({params}) => fetch(`https://server-6jg7-programmerasif.vercel.app/chefslist/${params.detilsId}`)
         
       }
     ],

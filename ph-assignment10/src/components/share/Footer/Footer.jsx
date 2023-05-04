@@ -9,8 +9,8 @@ const Footer = () => {
                     
                     <div className="col-sm-12 col-md-6">
                         <h3>Contact <FcCallback /></h3>
-                        <p><FcApproval /> Facbook : www.facebook/deshi-food-bank.com</p>
-                        <p><FcApproval /> Email :deshi-food-bank@gmail.com</p>
+                        <p><FcApproval /> Facbook : www.facebook/corean-food-bank.com</p>
+                        <p><FcApproval /> Email :corean-food-bank@gmail.com</p>
                         <p><FcApproval /> Phone : 017xxxxx01</p>
                     </div>
                     <div className="col-sm-12 col-md-6">

@@ -8,7 +8,7 @@ const SafeList = ({chef}) => {
     const {id,img_url,name,experience_years,rating,Numbers_of_recipes} = chef
     return (
         <div>
-            <div className=" ">
+            <div className="mb-5 ">
                 
                 <Card >
                     <Card.Img variant="top" src={img_url} />
