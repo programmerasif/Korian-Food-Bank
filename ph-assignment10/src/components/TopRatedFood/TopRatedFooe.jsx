@@ -11,7 +11,8 @@ const TopRatedFooe = () => {
     },[])
     return (
         <div className='row  container mt-5 mb-5 mt-5'>
-            <h4 className='text-white ms-4 bg-secondary bg-opacity-50 p-3 text-center '>Our Top Rated Recipe <span className='text-danger'>(Hot)<FaHotjar /> </span> </h4>
+            <h4 className='text-danger mx-auto   p-3 text-center '>Our Top Rated Recipe<span className='text-danger'>(Hot)<FaHotjar /> </span> </h4>
+            <hr />
             {
                 foods.map(food => <FoodCards key={food.id} food={food}/> )
             }

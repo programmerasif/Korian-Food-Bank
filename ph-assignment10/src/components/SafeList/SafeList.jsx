@@ -4,6 +4,7 @@ import { FcLike } from "react-icons/fc";
 import { FaAward } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const SafeList = ({chef}) => {
     const {id,img_url,name,experience_years,rating,Numbers_of_recipes} = chef
@@ -13,7 +14,7 @@ const SafeList = ({chef}) => {
                 
                 <Card >
                     
-                    <LazyLoadImage src={img_url} effect="blur" alt='https://thumbs.dreamstime.com/b/smoke-floor-isolated-black-background-misty-fog-effect-texture-overlays-text-space-smoke-fog-misty-overltays-effect-134306702.jpg' style={{width:"350px"}}/>
+                    <LazyLoadImage src={img_url} effect="blur" alt='https://thumbs.dreamstime.com/b/smoke-floor-isolated-black-background-misty-fog-effect-texture-overlays-text-space-smoke-fog-misty-overltays-effect-134306702.jpg' width={'300px'}/>
 
                     <Card.Body>
                         <Card.Title>{name}</Card.Title>

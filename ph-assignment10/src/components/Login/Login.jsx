@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
@@ -6,10 +6,11 @@ import { FaGithub, FaGoogle, FaGooglePlusG } from 'react-icons/fa';
 
 const Login = () => {
     const navigate = useNavigate()
+    const [err,setErr] = useState('')
     const {login,googleLogin,githubLogin} = useContext(AuthContext)
     const location = useLocation()
     // console.log(location.state.from?.pathname);
-
+     
     const handelLogin = event =>{
         event.preventDefault();
         const form = event.target;
@@ -23,7 +24,7 @@ const Login = () => {
           navigate(location?.state?.from?.pathname || '/')
         })
         .catch(err =>{
-          console.log(err);
+          setErr('Email or Password is Worng')
         })
     }
     const handelGoogle = () =>{
@@ -31,7 +32,6 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         navigate(location?.state?.from?.pathname || '/')
-        console.log(user);
       })
       .catch(err => console.log(err))
     }
@@ -67,6 +67,7 @@ const Login = () => {
       <Form.Group className="mb-3" >
         Dont Have An Account? <Link to='/register'><span>Register</span></Link>
       </Form.Group>
+      <p className='text-danger'>{err}</p>
       <button className='btn btn-danger w-100'>Log-in</button>
     </Form>
     

@@ -4,6 +4,7 @@ import SafeList from '../../SafeList/SafeList';
 import TopRatedFooe from '../../TopRatedFood/TopRatedFooe';
 import { FaHotjar } from 'react-icons/fa';
 import CoustomarRivew from '../../CoustomarRivew/CoustomarRivew';
+import Reservation from '../../Reservation/Reservation';
 
 
 
@@ -47,6 +48,10 @@ const Header = () => {
                </div>
                <div>
                 <CoustomarRivew />
+               </div>
+
+               <div>
+                <Reservation></Reservation>
                </div>
             </div>
             
